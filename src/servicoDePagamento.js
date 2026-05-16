@@ -28,6 +28,8 @@ export default class ServicoDePagamento {
     this.#pagamentos = [];
   }
 
+  //Validar se o pagamento é categoria "cara" ou "padrão" e armazenar o pagamento na lista de pagamentos.
+
   pagar(codigoBarras, empresa, valor) {
     if (valor > 100.00) {
       this.#pagamentos.push({
@@ -46,18 +48,16 @@ export default class ServicoDePagamento {
     }
   }
 
-  // Métodos pagar e consultarUltimoPagamento
+  // Metodo para realizar pagamento 
+ 
   realizarPagamento(codigoBarras, empresa, valor) {
     return this.pagar(codigoBarras, empresa, valor);
   }
+
+  //Metodo para consultar o último pagamento.
 
   consultarUltimoPagamento() {
     return this.#pagamentos[this.#pagamentos.length - 1];
   }
 
 }
-//export { ServicoDePagamento };
-//
-//const servicoDePagamento = new ServicoDePagamento();
-//servicoDePagamento.pagar('0987-7656-3475', 'Samar', 156.87);
-//console.log(servicoDePagamento.consultarUltimoPagamento());
