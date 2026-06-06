@@ -1,0 +1,49 @@
+name: CI - Testes e Relatório
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: {}
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  test:
+    name: Testes e geração de relatório
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests (mochawesome)
+        run: npm test
+
+      - name: Upload mochawesome report as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: mochawesome-report
+          path: mochawesome-report/**
+          retention-days: 7
+# Minha Pipeline completa Execução por push, manual, agendada e relatorio
+
+# nome da pipeline
+name: 'Pipeline Completa Juliana Menezes'
+# gatilhos para execução da pipeline
+on:
+  push:
+    branches:
+      - main
+      - BranchJu
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *' # Executa diariamente à meia-noite  

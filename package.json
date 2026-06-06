@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/**/*.test.js"
+    "test": "mocha --reporter mochawesome \"test/**/*.test.js\""
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,8 @@
   "homepage": "https://github.com/julianaoliveiramenezes-arch/trabalho_Programacao_Automacao#readme",
   "dependencies": {
     "mocha": "^11.7.5"
+  },
+  "devDependencies": {
+    "mochawesome": "^7.1.4"
   }
 }
