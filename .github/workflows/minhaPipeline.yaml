@@ -1,8 +1,8 @@
-name: CI - Testes e Relatório
+name: Pipeline Completa Juliana Menezes
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, BranchJu ]
   workflow_dispatch: {}
   schedule:
     - cron: '0 0 * * *'
@@ -34,16 +34,4 @@ jobs:
           name: mochawesome-report
           path: mochawesome-report/**
           retention-days: 7
-# Minha Pipeline completa Execução por push, manual, agendada e relatorio
 
-# nome da pipeline
-name: 'Pipeline Completa Juliana Menezes'
-# gatilhos para execução da pipeline
-on:
-  push:
-    branches:
-      - main
-      - BranchJu
-  workflow_dispatch:
-  schedule:
-    - cron: '0 0 * * *' # Executa diariamente à meia-noite  

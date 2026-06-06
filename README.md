@@ -1,4 +1,4 @@
-Trabalho: Programação e Automação
+Trabalho: 04 - Integração Contínua para Automação de Testes
 
 Este repositório contém exercícios e testes automatizados em Node.js. Abaixo estão os passos para instalar dependências, rodar os testes e gerar relatórios com o mochawesome.
 
@@ -56,5 +56,3 @@ npm install --save-dev mochawesome-merge mochawesome-report-generator
 npx mochawesome-merge mochawesome-report/*.json > mochawesome.json
 npx marge mochawesome.json -f mochawesome -o mochawesome-report
 ```
-
-Se quiser, eu adiciono scripts no `package.json` para automatizar esses passos e um exemplo de workflow do GitHub Actions que publica o relatório como artefato. Deseja que eu faça isso?
