@@ -20,9 +20,9 @@ Crie uma classe que possua dois métodos: um para realizar pagamento e outro par
   A entregua deve ser realizada via Github e o repositório deve ter a classe a pasta src 
   e os testes dos métodos dessa classe dentro da pasta test usando Mocha e Node Assert.
 */
- // criar a classe ServicoDePagamento
+// criar a classe ServicoDePagamento
 export default class ServicoDePagamento {
-  #pagamentos // Propriedade Privada
+  #pagamentos; // Propriedade Privada
 
   constructor() {
     this.#pagamentos = [];
@@ -31,25 +31,25 @@ export default class ServicoDePagamento {
   //Validar se o pagamento é categoria "cara" ou "padrão" e armazenar o pagamento na lista de pagamentos.
 
   pagar(codigoBarras, empresa, valor) {
-    if (valor > 100.00) {
+    if (valor > 100.0) {
       this.#pagamentos.push({
         codigoBarras: codigoBarras,
         empresa: empresa,
         valor: valor,
-        categoria: 'cara'
+        categoria: "cara",
       });
     } else {
       this.#pagamentos.push({
         codigoBarras: codigoBarras,
         empresa: empresa,
         valor: valor,
-        categoria: 'padrão'
+        categoria: "padrão",
       });
     }
   }
 
-  // Metodo para realizar pagamento 
- 
+  // Metodo para realizar pagamento
+
   realizarPagamento(codigoBarras, empresa, valor) {
     return this.pagar(codigoBarras, empresa, valor);
   }
@@ -59,5 +59,4 @@ export default class ServicoDePagamento {
   consultarUltimoPagamento() {
     return this.#pagamentos[this.#pagamentos.length - 1];
   }
-
 }
