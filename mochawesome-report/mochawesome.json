@@ -5,9 +5,9 @@
     "passes": 4,
     "pending": 0,
     "failures": 0,
-    "start": "2026-06-06T20:50:49.827Z",
-    "end": "2026-06-06T20:50:49.835Z",
-    "duration": 8,
+    "start": "2026-06-12T21:56:11.152Z",
+    "end": "2026-06-12T21:56:11.161Z",
+    "duration": 9,
     "testsRegistered": 4,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "00dace44-4256-42f3-a6a4-3f26fd051fd2",
+      "uuid": "41ada6a8-4ced-42fc-95df-eece15897382",
       "title": "",
       "fullFile": "C:\\git\\trabalho_Programacao_Automacao\\test\\servicoDePagamento.test.js",
       "file": "\\test\\servicoDePagamento.test.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "8a3c324c-2655-459a-ad92-366e959aa55b",
+          "uuid": "192b1dfc-4e3a-46e3-ad07-06d31a8b86d8",
           "title": "Testes do Módulo de Pagamento",
           "fullFile": "C:\\git\\trabalho_Programacao_Automacao\\test\\servicoDePagamento.test.js",
           "file": "\\test\\servicoDePagamento.test.js",
@@ -38,7 +38,7 @@
               "title": "Consultar o último pagamento",
               "fullTitle": "Testes do Módulo de Pagamento Consultar o último pagamento",
               "timedOut": false,
-              "duration": 1,
+              "duration": 2,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "// Arrange (Criar constantes com dados de pagamento e resultado esperado)\nconst servicoDePagamento = new ServicoDePagamento();\nconst codigoBarras = \"0987-7656-3475\";\nconst empresa = \"Menezes S.A\";\nconst valor = 56.87;\nconst ultimoPagamentoEsperado = {\n  codigoBarras: codigoBarras,\n  empresa: empresa,\n  valor: valor,\n  categoria: \"padrão\",\n};\n// Act (Realizar o pagamento)\nservicoDePagamento.pagar(codigoBarras, empresa, valor);\n// Assert (Verificar se o último pagamento é o esperado)\nassert.deepStrictEqual(\n  servicoDePagamento.consultarUltimoPagamento(),\n  ultimoPagamentoEsperado,\n);",
               "err": {},
-              "uuid": "b3f493a4-cfd2-4846-9179-7a2ac41ac249",
-              "parentUUID": "8a3c324c-2655-459a-ad92-366e959aa55b",
+              "uuid": "279c9a7b-ef6f-4136-9a6d-056a27b2192f",
+              "parentUUID": "192b1dfc-4e3a-46e3-ad07-06d31a8b86d8",
               "isHook": false,
               "skipped": false
             },
@@ -65,8 +65,8 @@
               "context": null,
               "code": "// Arrange\nconst servicoDePagamento = new ServicoDePagamento();\nconst codigoBarras = \"1234-5678-9012\";\nconst empresa = \"Oliveira Ltda\";\nconst valor = 250.0;\nconst ultimoPagamentoEsperado = {\n  codigoBarras: codigoBarras,\n  empresa: empresa,\n  valor: valor,\n  categoria: \"cara\",\n};\n// Act\nservicoDePagamento.pagar(codigoBarras, empresa, valor);\n// Assert\nassert.deepStrictEqual(\n  servicoDePagamento.consultarUltimoPagamento(),\n  ultimoPagamentoEsperado,\n);",
               "err": {},
-              "uuid": "2cb9ab59-e327-40ea-89fc-3f73b972490b",
-              "parentUUID": "8a3c324c-2655-459a-ad92-366e959aa55b",
+              "uuid": "2d0440d6-3d8c-4b32-b0c7-0a9614e4d256",
+              "parentUUID": "192b1dfc-4e3a-46e3-ad07-06d31a8b86d8",
               "isHook": false,
               "skipped": false
             },
@@ -83,8 +83,8 @@
               "context": null,
               "code": "// Arrange\nconst servicoDePagamento = new ServicoDePagamento();\nconst codigoBarras = \"3456-7890-1234\";\nconst empresa = \"Automação Ltda\";\nconst valor = 90.0;\nconst ultimoPagamentoEsperado = {\n  codigoBarras: codigoBarras,\n  empresa: empresa,\n  valor: valor,\n  categoria: \"padrão\",\n};\n// Act\nservicoDePagamento.pagar(codigoBarras, empresa, valor);\n// Assert\nassert.deepStrictEqual(\n  servicoDePagamento.consultarUltimoPagamento(),\n  ultimoPagamentoEsperado,\n);",
               "err": {},
-              "uuid": "b6185f6b-e930-44ef-a5f9-25e87b53d8b1",
-              "parentUUID": "8a3c324c-2655-459a-ad92-366e959aa55b",
+              "uuid": "464fe66b-6e39-4755-ad5b-1b8d4683a998",
+              "parentUUID": "192b1dfc-4e3a-46e3-ad07-06d31a8b86d8",
               "isHook": false,
               "skipped": false
             },
@@ -101,23 +101,23 @@
               "context": null,
               "code": "// Arrange\nconst servicoDePagamento = new ServicoDePagamento();\nconst codigoBarras = \"3456-7890-1234\";\nconst empresa = \"Automação Ltda\";\nconst valor = 100.0;\nconst ultimoPagamentoEsperado = {\n  codigoBarras: codigoBarras,\n  empresa: empresa,\n  valor: valor,\n  categoria: \"padrão\",\n};\n// Act\nservicoDePagamento.pagar(codigoBarras, empresa, valor);\n// Assert\nassert.deepStrictEqual(\n  servicoDePagamento.consultarUltimoPagamento(),\n  ultimoPagamentoEsperado,\n);",
               "err": {},
-              "uuid": "d7f55653-10c5-40f0-bd07-7f2bbc328592",
-              "parentUUID": "8a3c324c-2655-459a-ad92-366e959aa55b",
+              "uuid": "0f146657-3497-4754-84a9-38bafec5357b",
+              "parentUUID": "192b1dfc-4e3a-46e3-ad07-06d31a8b86d8",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "b3f493a4-cfd2-4846-9179-7a2ac41ac249",
-            "2cb9ab59-e327-40ea-89fc-3f73b972490b",
-            "b6185f6b-e930-44ef-a5f9-25e87b53d8b1",
-            "d7f55653-10c5-40f0-bd07-7f2bbc328592"
+            "279c9a7b-ef6f-4136-9a6d-056a27b2192f",
+            "2d0440d6-3d8c-4b32-b0c7-0a9614e4d256",
+            "464fe66b-6e39-4755-ad5b-1b8d4683a998",
+            "0f146657-3497-4754-84a9-38bafec5357b"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 1,
+          "duration": 2,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

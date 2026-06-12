@@ -1,5 +1,18 @@
 name: Pipeline Completa Juliana Menezes
 
+# Esta workflow configura uma pipeline de integração contínua que:
+# - é disparada em push nas branches `main` e `BranchJu`, manualmente via
+#   `workflow_dispatch` e por agendamento diário via `cron`.
+# - executa os testes do projeto, gera relatórios com `mochawesome` e
+#   publica o diretório `mochawesome-report/` como artifact.
+#
+# Conceitos usados:
+# - Triggers: `push`, `workflow_dispatch` (execução manual) e `schedule` (cron).
+# - Runner: ambiente `ubuntu-latest` usado para executar comandos do Node.js.
+# - Caching: `actions/setup-node` com `cache: 'npm'` para acelerar instalações.
+# - Artifacts: `actions/upload-artifact` para preservar relatórios entre runs.
+# - Retention: controla por quantos dias o artifact ficará disponível.
+
 on:
   push:
     branches: [ main, BranchJu ]
@@ -15,18 +28,27 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        # Faz o checkout do repositório para que os passos subsequentes possam
+        # acessar o código-fonte e executar os testes.
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '24'
           cache: 'npm'
+        # Prepara o ambiente Node.js na versão especificada.
+        # O `cache: 'npm'` reutiliza dependências previamente instaladas para
+        # reduzir tempo de build nas execuções seguintes.
 
       - name: Install dependencies
         run: npm install
+        # Instala as dependências declaradas em package.json.
 
       - name: Run tests (mochawesome)
         run: npm test
+        # Executa a suíte de testes. O `package.json` do projeto deve ter o
+        # script `test` configurado para usar o reporter mochawesome para gerar
+        # os relatórios em `mochawesome-report/`.
 
       - name: Upload mochawesome report as artifact
         uses: actions/upload-artifact@v4
@@ -34,4 +56,7 @@ jobs:
           name: mochawesome-report
           path: mochawesome-report/**
           retention-days: 7
+        # Salva o diretório de relatórios como um artifact do workflow para
+        # permitir download/inspeção após a execução. `retention-days` define
+        # por quantos dias o GitHub manterá o artifact.
 
